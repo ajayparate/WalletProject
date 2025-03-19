@@ -1,0 +1,12 @@
+package com.wallet.entity;
+
+import javax.annotation.processing.Generated;
+
+@Entity
+public class Wallet {
+    private Long walletId;
+
+    private String userName;
+
+    private double balance;
+}

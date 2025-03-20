@@ -17,6 +17,7 @@ public class WalletService {
 	public double addMoney(String username, double amount) {
 		Wallet wallet = walletRepository.findByUsername(username).orElse(new Wallet(username, 0));
 		wallet.setBalance(wallet.getBalance()+ amount);
+		wallet.setUserName(username);
 		walletRepository.save(wallet);
 		return wallet.getBalance();
 	}

@@ -1,0 +1,37 @@
+package com.wallet.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.wallet.service.WalletService;
+
+@RestController
+@RequestMapping("/wallet")
+public class WalletController {
+	
+	@Autowired
+	private WalletService walletService;
+	
+	@PostMapping("/{username}/add")
+	public ResponseEntity<Double> addMoney(@RequestParam String username, @RequestParam double amount){
+		return ResponseEntity.ok(walletService.addMoney(username, amount));
+	}
+	
+	@GetMapping("/{username}/balance")
+	public ResponseEntity<Double> getBalance(@PathVariable String username){
+		return ResponseEntity.ok(walletService.getMoney(username));
+	}
+	
+	@PostMapping("/{username}/withdraw")
+	public ResponseEntity<Double> withdrawMoney(@PathVariable String username, @RequestParam double amount){
+		return ResponseEntity.ok(walletService.withdrawMoney(username, amount));
+	}
+	
+
+}

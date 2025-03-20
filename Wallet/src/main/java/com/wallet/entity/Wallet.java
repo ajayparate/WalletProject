@@ -14,7 +14,7 @@ public class Wallet {
     private Long walletId;
 
 	@Column(name = "Username", length = 20)
-    private String userName;
+    private String username;
 
 	@Column(name = "Balance")
     private double balance;
@@ -22,7 +22,7 @@ public class Wallet {
 	public Wallet(Long walletId, String userName, double balance) {
 		super();
 		this.walletId = walletId;
-		this.userName = userName;
+		this.username = userName;
 		this.balance = balance;
 	}
 
@@ -31,11 +31,11 @@ public class Wallet {
 	}
 
 	public String getUserName() {
-		return userName;
+		return username;
 	}
 
 	public void setUserName(String userName) {
-		this.userName = userName;
+		this.username = userName;
 	}
 
 	public double getBalance() {
@@ -48,6 +48,10 @@ public class Wallet {
 
 	public Long getWalletId() {
 		return walletId;
+	}
+	
+	public Wallet() {
+		
 	}
 	
 	
